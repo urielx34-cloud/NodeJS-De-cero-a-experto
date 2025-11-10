@@ -13,10 +13,10 @@ import { buildLogger } from "./plugins/logger.plugin";
 // const getPokemonById = require('./js-foundation/06-promises');
 
  
-const logger = buildLogger('app.js');
+// const logger = buildLogger('app.js');
 
-logger.log('Hola mundo');
-logger.error('Esto es algo malo');
+// logger.log('Hola mundo');
+// logger.error('Esto es algo malo');
 
 // getPokemonById(4)
 //   .then( ( pokemon ) => console.log({ pokemon }) )
@@ -32,7 +32,7 @@ logger.error('Esto es algo malo');
 // Publicas
 
 
-// ! Referencia a la función factory y uso
+//  !Referencia a la función factory y uso
 // const makePerson = buildMakePerson({ getUUID, getAge });
 
 // const obj = { name: 'John', birthdate: '1985-10-21' };
