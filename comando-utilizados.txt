@@ -1,0 +1,4 @@
+comando para test
+- npm run test:watch   
+comando para ver reporte de test
+- npm run test:coverage
