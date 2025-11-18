@@ -9,5 +9,5 @@ import { yarg } from "./config/plugins/yargs.plugin";
     console.log("fin programa")
 })(); //! estrcuta de una funcion auto invocada anonima
 async function main() {
-    console.log("ejecutando")
+    console.log(yarg)
 }

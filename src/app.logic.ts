@@ -1,15 +1,27 @@
 
 import fs from 'fs';
 import * as path from 'path';
+import { yarg } from './config/plugins/yargs.plugin';
 
+console.log(yarg);
 
-const noTable: number = 6;
-const limiteTabla:number = 10;
+const {b:base, l:limit,s:showTable} =yarg
+
+const noTable: number = base;
+const limiteTabla:number = limit;
+const header = `
+==========================================
+        tabla del ${noTable}
+==========================================\n
+`
 
 let content: string = '';
 
 for(let i = 1; i <= limiteTabla; i++){
     content += `${noTable} x ${i} = ${noTable * i}\n`;
+}
+if(showTable){
+  console.log(header+content)
 }
 
 const directory = 'outputs';
@@ -25,6 +37,7 @@ try {
   const outputPath = `outputs/folder1/folder2`; // carpeta directoria a crear
   fs.mkdirSync(outputPath,{recursive:true});//! con esto evitas el error si la carpeta no existe porque le va a crear.
   fs.writeFileSync(`${outputPath}/tabla-${noTable}`,content)
+  console.log("archivo creado")
   // crea la carpeta si no existe fin------------------------------
 
   /// deber crear carpeta
