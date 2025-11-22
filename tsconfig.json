@@ -1,5 +1,5 @@
 {
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist", "src/**/*.test.ts"],
   "include": ["src/**/*"],
   "compilerOptions": {
     "rootDir": "src",
@@ -9,7 +9,7 @@
     "target": "es2020",
     "moduleResolution": "nodenext",
 
-    "types": ["node"],
+    "types": ["node","jest"],
 
     "sourceMap": true,
     "declaration": true,
