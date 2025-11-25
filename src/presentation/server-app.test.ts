@@ -7,8 +7,8 @@ describe('server-app', () => {
             base:2,
             limit: 10,
             showTable:false,
-            distinationFile:'test-destination',
-            nameFile: 'test-filename'
+            fileDestination:'test-destination',
+            fileName: 'test-filename'
         };
 
 
@@ -54,9 +54,11 @@ describe('server-app', () => {
         
     });
 
+    /// pruebas unitarias con mocks
     test('should run with custom values mocked', () => {
+
         const createMock = jest.fn().mockReturnValue('1 x 2  = 2'); /// me indica si la funcion fue llamada usando mock, los mock facilitan las pruebas unitarias y limpiar dichas pruebas
-        const savaFileMock = jest.fn().mockReturnValue(false);
+        const savaFileMock = jest.fn().mockReturnValue(true);
         const logMock = jest.fn();
         const logErrorMock = jest.fn();
 
@@ -66,15 +68,15 @@ describe('server-app', () => {
         FileSave.prototype.execute = savaFileMock;
 
             ServerApp.run(options);
-            expect(logMock).toHaveBeenCalledWith("server running...");
+            expect(logMock).toHaveBeenCalledWith("Server running...");
             expect(createMock).toHaveBeenCalledWith({base:options.base, limit:options.limit});
             expect(savaFileMock).toHaveBeenCalledWith({
                 fileContent: '1 x 2  = 2',
-                fileDestination: options.distinationFile,
-                fileName: options.nameFile
+                fileDestination: options.fileDestination,
+                fileName: options.fileName
             });
 
-            expect(logMock).toHaveBeenCalledWith('archivo creado');
+            expect(logMock).toHaveBeenCalledWith('File created!');
             expect(logErrorMock).not.toHaveBeenCalled();
 
         });
