@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/urielx34-cloud/NodeJS-De-cero-a-experto/issues"
   },
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/urielx34-cloud/NodeJS-De-cero-a-experto.git"

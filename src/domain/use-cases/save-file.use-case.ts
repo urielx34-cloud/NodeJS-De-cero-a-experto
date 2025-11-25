@@ -6,8 +6,8 @@ export interface SaveFileUseCase {
 
 export interface Options {
     fileContent: string;
-    fileDestination: string;
-    fileName: string;
+    fileDestination?: string;
+    fileName?: string;
 }
 
 export class FileSave implements SaveFileUseCase {
@@ -29,7 +29,7 @@ export class FileSave implements SaveFileUseCase {
             
             return true;
         } catch (error) {
-            console.error(error)
+           // console.error(error) // pasar a winston despues
             return false;
         }
 

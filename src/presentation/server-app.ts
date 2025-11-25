@@ -19,8 +19,8 @@ export class ServerApp{
             fileDestination:distinationFile,
             fileName:nameFile
         })
-        if(showTable) console.log(tabla)
+        if(showTable) console.log(tabla);
 
-        if(fueCreadoElArchivo) console.log("archivo creado");
+        (fueCreadoElArchivo)? console.log("archivo creado") : console.error("no se pudo crear el archivo");
     }
 }

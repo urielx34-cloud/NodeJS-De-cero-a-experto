@@ -20,6 +20,8 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "isolatedModules": true,
   }
 }
