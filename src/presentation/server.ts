@@ -7,7 +7,12 @@ export class Server {
         
         /// patron adapatador ya que sustituye la configuracion nativa de cron por una clase propia
         CronService.createJob('*/5 * * * * *', () => {
-            new CheckService().excecute('https://www.google.com');
+            const url = 'https://www.google.com';
+            new CheckService(
+                () => { console.log(`${url} is Ok`); },
+                (error: string) => { console.log('Service is DOWN - Callback', error); }
+            ).excecute(url);
+           //new CheckService().excecute('http://localhost:3000/'); 
         });
     }
 }

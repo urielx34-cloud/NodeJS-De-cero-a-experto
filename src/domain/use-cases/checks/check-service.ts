@@ -1,11 +1,19 @@
 
 
-
 interface CheckServiceUseCase{
     excecute(url:string):Promise<boolean>; // recibe un url y regresa una promesa booleana
 }
 
+type SuccessCallback = () => void;
+type FailureCallback = (error:string) =>  void;
+
 export class CheckService {
+
+    // inyectar dependencias si es necesario
+    constructor(
+        private readonly successCallback: SuccessCallback,
+        private readonly failureCallback: FailureCallback
+    ){ }
 
     async excecute(url:string):Promise<boolean>{
 
@@ -14,10 +22,10 @@ export class CheckService {
             if(!req.ok){
                 throw new Error(`Error en check service ${url}`)
             }
-            console.log(`${url} is UP`);
+            this.successCallback();
              return true;
         }catch(error){
-            console.log('Error en check service', error);
+            this.failureCallback(`Error en check service ${url}`);
             return false
         }
        
