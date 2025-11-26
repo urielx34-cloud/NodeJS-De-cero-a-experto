@@ -1,0 +1,5 @@
+levanta un servido json 
+con el paquete: https://www.npmjs.com/package/json-server
+
+script para correr
+$ npm run start
