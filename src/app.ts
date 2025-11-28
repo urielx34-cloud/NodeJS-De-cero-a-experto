@@ -1,11 +1,16 @@
+import { Server } from './presentation/server';
 
-import { Server } from "./presentation/server";
 
-//! funcion anonima autoinvocada
-(async () => {
-    main();
+
+
+(async() => {
+  main();
 })();
 
+
 function main(){
-    Server.start();
+  Server.start();
+
 }
+
+

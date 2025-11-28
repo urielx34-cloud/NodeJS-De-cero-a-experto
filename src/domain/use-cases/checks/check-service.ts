@@ -1,33 +1,41 @@
-
-
-interface CheckServiceUseCase{
-    excecute(url:string):Promise<boolean>; // recibe un url y regresa una promesa booleana
+interface CheckServiceUseCase {
+  execute( url: string ):Promise<boolean>;
 }
+
 
 type SuccessCallback = () => void;
-type FailureCallback = (error:string) =>  void;
+type ErrorCallback = ( error: string ) => void;
 
-export class CheckService {
 
-    // inyectar dependencias si es necesario
-    constructor(
-        private readonly successCallback: SuccessCallback,
-        private readonly failureCallback: FailureCallback
-    ){ }
 
-    async excecute(url:string):Promise<boolean>{
 
-        try{
-            const req = await fetch(url);
-            if(!req.ok){
-                throw new Error(`Error en check service ${url}`)
-            }
-            this.successCallback();
-             return true;
-        }catch(error){
-            this.failureCallback(`Error en check service ${url}`);
-            return false
-        }
-       
+export class CheckService implements CheckServiceUseCase {
+
+  constructor(
+    private readonly successCallback: SuccessCallback,
+    private readonly errorCallback: ErrorCallback
+  ) {}
+
+
+  public async execute( url: string ): Promise<boolean> {
+
+    try {
+      const req = await fetch( url );
+      if ( !req.ok ) {
+        throw new Error( `Error on check service ${ url }` );
+      }
+
+      this.successCallback();
+      return true;
+    } catch (error) {
+      
+      console.log(`${ error }`);
+
+      this.errorCallback( `${ error }` );
+      return false;
     }
+
+  }
+
 }
+

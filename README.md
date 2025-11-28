@@ -1,4 +1,3 @@
-PROYECTO PARA REALIZAR ENVIO DE CORREOS
+# Proyecto NOC
 
---correr en dev
-npm run dev
+El objetivo es crear una serie de tareas usando Arquitectura Limpia con TypeScript
