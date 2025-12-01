@@ -15,15 +15,19 @@ export class Server {
 
     console.log( 'Server started...' );
 
+    // const emailService = new EmailService();
+    // emailService.sendEmail({
+    //   to: 'urodrigueza@uabc.edu.mx',
+    //   subject:'Logs de sistema',
+    //   htmlBody:`<h1> Logs de Sistema - NOC </h1>
+    //   <p> Este es un correo de prueba enviado desde el servicio de email </p>
+    //   <p> Saludos </p>
+    //   `
+    // })
+
+    // envio de logs
     const emailService = new EmailService();
-    emailService.sendEmail({
-      to: 'urodrigueza@uabc.edu.mx',
-      subject:'Logs de sistema',
-      htmlBody:`<h1> Logs de Sistema - NOC </h1>
-      <p> Este es un correo de prueba enviado desde el servicio de email </p>
-      <p> Saludos </p>
-      `
-    })
+    emailService.sendEmailWithfileSystemLogs(['urodrigueza@uabc.edu.mx', 'urodriguez@ite.edu.mx']);
 
     //console.log(envs.MAILER_EMAIL, envs.MAILER_SECRET_KEY);
     //mandar emails
