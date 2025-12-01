@@ -1,5 +1,6 @@
 import { envs } from '../config/plugins/envs.plugin';
 import { CheckService } from '../domain/use-cases/checks/check-service';
+import { senEmailLogs } from '../domain/use-cases/email/send-email-logs';
 import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
 import { LogRepositoryImp } from '../infrastructure/repositories/log.repository.imp';
 import { CronService } from './cron/cron-service';
@@ -8,12 +9,16 @@ import { EmailService } from './email/email.service';
 const fileSystemLogRepository =  new LogRepositoryImp(
   new FileSystemDataSource(),
 );
-
+ const emailService = new EmailService();
 export class Server {
 
   public static start() {
 
     console.log( 'Server started...' );
+    new senEmailLogs(
+      emailService,
+      fileSystemLogRepository
+    ).execute(['@uabc.edu.mx', '@ite.edu.mx']);
 
     // const emailService = new EmailService();
     // emailService.sendEmail({
@@ -26,8 +31,8 @@ export class Server {
     // })
 
     // envio de logs
-    const emailService = new EmailService();
-    emailService.sendEmailWithfileSystemLogs(['urodrigueza@uabc.edu.mx', 'urodriguez@ite.edu.mx']);
+   
+    //emailService.sendEmailWithfileSystemLogs(['urodrigueza@uabc.edu.mx', 'urodriguez@ite.edu.mx']); // descomantado para que no envie correos
 
     //console.log(envs.MAILER_EMAIL, envs.MAILER_SECRET_KEY);
     //mandar emails
