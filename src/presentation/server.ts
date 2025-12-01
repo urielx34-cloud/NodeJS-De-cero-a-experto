@@ -12,7 +12,7 @@ export class Server {
   public static start() {
 
     console.log( 'Server started...' );
-
+    //mandar emails
     
     // CronService.createJob(
     //   '*/5 * * * * *',
