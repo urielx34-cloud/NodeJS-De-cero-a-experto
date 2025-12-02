@@ -14,11 +14,11 @@ export class Server {
 
   public static start() {
 
-    console.log( 'Server started...' );
-    new senEmailLogs(
-      emailService,
-      fileSystemLogRepository
-    ).execute(['@uabc.edu.mx', '@ite.edu.mx']);
+    console.log( 'Server started......' );
+    // new senEmailLogs(
+    //   emailService,
+    //   fileSystemLogRepository
+    // ).execute(['@uabc.edu.mx', '@ite.edu.mx']);
 
     // const emailService = new EmailService();
     // emailService.sendEmail({
