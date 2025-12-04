@@ -4,4 +4,4 @@ dist/
 .DS_Store
 logs/*.log
 .env
-mongo/
+/mongo/o
